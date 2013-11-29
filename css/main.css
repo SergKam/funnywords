@@ -1,0 +1,71 @@
+/*
+    Created on : Nov 29, 2013, 2:22:05 PM
+    Author     : sergkam
+*/
+
+body {
+    background: rgb(89, 107, 134);
+    color: wheat;
+    text-shadow: 1px 1px black;
+    font-size: 2em;
+    font-family: Arial;
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    text-shadow: 1px 1px black;
+    text-decoration: underline;
+}
+
+button {
+    padding: 10px;
+    font-weight: bold;
+    font-size: 200%;
+    border-radius: 5px;
+    text-shadow: 1px 1px white;
+    background: -webkit-linear-gradient(#eee , rgb(209, 175, 139) );
+    color: rgb(44, 58, 27);
+
+}
+
+
+footer {
+    position: fixed;
+    bottom: 1%;
+    right: 1%;
+    font-size: 0.5em;
+}
+
+.main-container {
+    text-align: center;
+}
+.main-container button {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.word {
+    padding: 0.3em 1em;
+    font-weight: bold;
+    font-size: 200%;
+    border-radius: 5px;
+    text-shadow: 1px 1px white;
+    background: -webkit-linear-gradient(#eee , rgb(209, 175, 139) );
+    color: rgb(44, 58, 27);
+    margin: 3em;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    cursor: pointer;
+}
+
+.word.selected {
+    text-shadow: -1px -1px black;
+    background: -webkit-linear-gradient(#999 , #eee);
+    color: white;
+}

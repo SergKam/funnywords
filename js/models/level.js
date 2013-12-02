@@ -4,12 +4,12 @@ define([
 ], function (Backbone) {
 	'use strict';
 
-	var WordItem = Backbone.Model.extend({
+	var Level = Backbone.Model.extend({
 		defaults: {
-			en: '',
-			ru: ''
+			done: false,
+            time: 0
 		}
 	});
 
-	return WordItem;
+	return Level;
 });

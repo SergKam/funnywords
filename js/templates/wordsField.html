@@ -1,10 +1,22 @@
+<div class ="left">
+<% collection.forEach(function(word, i){ %>
+        <button class="word"
+            data-index="<%=i%>"
+            data-lang ="en"
+            >
+            <%=word.get("en")%>
+        </button>
+     <% }); %>
+</div>
 
-<button
-    class="word"
-    data-translation="<%=translation%>"
-    style="top:<%=(slot * 40)%>px; left:<%=(side === 'right' ? 10: 50) %>% "
-    >
-    <%=word%>
-</button>
-
+<div class ="right">
+    <% collection.forEach(function(word, i){ %>
+        <button class="word"
+            data-index="<%=positions[i]%>"
+            data-lang ="ru"
+            >
+            <%=collection.at(positions[i]).get('ru')%>
+        </button>
+    <% }); %>
+</div>
 

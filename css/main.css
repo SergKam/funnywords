@@ -3,13 +3,18 @@
     Author     : sergkam
 */
 
+html, body, section, div {
+    margin: 0;
+    padding: 0;
+}
+
+
 body {
     background: rgb(89, 107, 134);
     color: wheat;
     text-shadow: 1px 1px black;
     font-size: 2em;
     font-family: Arial;
-
 }
 
 a {
@@ -22,15 +27,15 @@ a:hover {
     text-decoration: underline;
 }
 
-button {
+.start {
     padding: 10px;
     font-weight: bold;
     font-size: 200%;
     border-radius: 5px;
     text-shadow: 1px 1px white;
     background: -webkit-linear-gradient(#eee , rgb(209, 175, 139) );
+    background: -moz-linear-gradient(#eee , rgb(209, 175, 139) );
     color: rgb(44, 58, 27);
-
 }
 
 
@@ -41,6 +46,11 @@ footer {
     font-size: 0.5em;
 }
 
+.main {
+    height: 90%;
+    vertical-align: top;
+}
+
 .main-container {
     text-align: center;
 }
@@ -49,16 +59,27 @@ footer {
     padding-left: 50px;
 }
 
+div.left, div.right {
+    width: 45%;
+    height: 90%;
+    display: inline-block;
+    margin: 0.3em;
+    border: 1px solid activeborder;
+    box-shadow:  0 0 10px black;
+    border-radius: 5px;
+    vertical-align: top;
+}
+
 .word {
-    padding: 0.3em 1em;
+    padding: 0.2em 1em;
     font-weight: bold;
-    font-size: 200%;
+    font-size: 150%;
     border-radius: 5px;
     text-shadow: 1px 1px white;
     background: -webkit-linear-gradient(#eee , rgb(209, 175, 139) );
+    background: -moz-linear-gradient(#eee , rgb(209, 175, 139) );
     color: rgb(44, 58, 27);
-    margin: 3em;
-    position: absolute;
+    margin: 0.3em;
     left: 50%;
     top: 50%;
     cursor: pointer;
@@ -67,5 +88,11 @@ footer {
 .word.selected {
     text-shadow: -1px -1px black;
     background: -webkit-linear-gradient(#999 , #eee);
+    background: -moz-linear-gradient(#999 , #eee);
     color: white;
+}
+
+.word.selected.wrong {
+    background: -webkit-linear-gradient(red , #eee);
+    background: -moz-linear-gradient(red , #eee);
 }

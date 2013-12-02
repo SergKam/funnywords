@@ -7,24 +7,22 @@ define([
 ], function ($, _, Backbone, statsTemplate) {
 	'use strict';
 
-	var IntroView = Backbone.View.extend({
+	return Backbone.View.extend({
 
 		template: _.template(statsTemplate),
 
 		events: {
-			'click button.start':		'start'
+			'click button.start': 'start'
 		},
 
-		render: function (eventName) {
+		render: function () {
             $(this.el).html(this.template());
             return this;
         },
 
-        start: function()
-        {
-            Backbone.history.navigate("level/1", {trigger: true});
+        start: function(event) {
+            var level = $(event.target).data('level');
+            this.trigger('levelSelected', {level: level});
         }
 	});
-
-	return IntroView;
 });

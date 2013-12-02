@@ -34,6 +34,9 @@ require([
 	'backbone',
 	'routers/router'
 ], function (Backbone, Router) {
+
+     _.extend(Backbone.View.prototype, Backbone.Events);
+
 	/*jshint nonew:false*/
 	// Initialize routing and start Backbone.history()
 	new Router();

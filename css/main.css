@@ -27,6 +27,12 @@ a:hover {
     text-decoration: underline;
 }
 
+.level {
+    display: inline-block;
+    height: 5em;
+    vertical-align: top;
+}
+
 .start {
     padding: 10px;
     font-weight: bold;
@@ -36,6 +42,13 @@ a:hover {
     background: -webkit-linear-gradient(#eee , rgb(209, 175, 139) );
     background: -moz-linear-gradient(#eee , rgb(209, 175, 139) );
     color: rgb(44, 58, 27);
+}
+
+.start.done {
+    text-shadow: -1px -1px black;
+    background: -webkit-linear-gradient(#999 , #eee);
+    background: -moz-linear-gradient(#999 , #eee);
+    color: white;
 }
 
 

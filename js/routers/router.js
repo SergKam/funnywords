@@ -18,47 +18,53 @@ define([
             "level/:id": "showLevel"
         },
 
-        showLevelList: function() {
-            var levels = new Levels(),
-                levelsView = new LevelsView({ collection: levels});
+        initialize: function()
+        {
+            //create presistent level collections
+            this.levels = new Levels();
+        },
 
+        showLevelList: function() {
+            //recreate view
+            var levelsView = new LevelsView({ collection: this.levels});
+
+            //go to level on level selected in view
             levelsView.on('levelSelected', function(data) {
                 this.navigate("level/" + data.level , {trigger: true});
             }.bind(this));
 
+            //run
             $('#main').html(levelsView.render().el);
         },
 
 		showLevel: function (level) {
-            var words = new Words(this.getPart(data, level)),
+            var errors = 0,
+                words = new Words(),
                 wordsView = new WordsSelectorView({
                     collection: words,
+                    level: this.levels.get(level),
                     className: "main-container",
                 });
 
             wordsView.on('win', function() {
-               this.navigate("", {trigger: true});
-            }.bind(this));
+                //save progress
+                this.levels.get(level).save({
+                            'done': true,
+                            'errors': errors
+                        });
 
+                //go to main start page
+                this.navigate("", {trigger: true});
+            }.bind(this))
+
+            //on erreor, count error
+            .on('error', function() {
+                errors++
+             });
+
+            //run
             $('#main').html(wordsView.render().el);
-		},
-
-        getPart: function(wordList, level) {
-            var word,
-                start = level * 10,
-                result = [];
-
-            for(word in wordList) {
-                result.push({
-                    en: word,
-                    ru: wordList[word]
-                })
-            }
-
-            result = _.shuffle(result.slice( start, start + 10));
-
-            return result;
-        }
+		}
 	});
 
 	return App;

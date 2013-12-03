@@ -44,7 +44,7 @@ define([
 
         onSelectWord: function(event) {
             var oldIndex,
-                $el = $(event.target),
+                $el = this.$(event.target),
                 index = $el.data('index'),
                 lang = $el.data('lang');
 
@@ -73,10 +73,13 @@ define([
             //wrong pair selected
             if( this.selected[RU] !== this.selected[EN] ) {
                 $el.addClass('wrong');
-
+                //animate error
                 setTimeout(function(){
                     $el.removeClass('wrong');
                 }.bind($el), 1000);
+
+                //send error to app level
+                this.trigger('error');
 
                 return;
             }

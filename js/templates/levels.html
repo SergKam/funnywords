@@ -1,9 +1,14 @@
 <div class="main-container">
     <h1>Please, choose any word and then the translation.</h1>
-    <button class="start" data-level="1">Start 1</button>
-    <button class="start" data-level="2">Start 2</button>
-    <button class="start" data-level="3">Start 3</button>
-    <button class="start" data-level="4">Start 4</button>
-    <button class="start" data-level="5">Start 5</button>
+    <%collection.each(function(level){%>
+    <div class="level">
+        <button class="start <%=(level.get('done') ? 'done' : '')%>"
+            data-level="<%=level.get('id')%>">
+        Level <%=level.get('id')%>
+        </button>
+        <div><%=level.get('errors') ? ('Errors: ' + level.get('errors')) : '' %></div>
+    </div>
+    <%});%>
+
     <p>Выбери любое слово а затем его перевод.</p>
 </div>

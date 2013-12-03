@@ -3,7 +3,7 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'text!templates/intro.html'
+	'text!templates/levels.html'
 ], function ($, _, Backbone, statsTemplate) {
 	'use strict';
 
@@ -16,7 +16,10 @@ define([
 		},
 
 		render: function () {
-            $(this.el).html(this.template());
+            this.$el.html(this.template({
+                collection: this.collection
+            }));
+
             return this;
         },
 

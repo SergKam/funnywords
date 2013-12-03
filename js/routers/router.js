@@ -39,10 +39,13 @@ define([
 
 		showLevel: function (level) {
             var errors = 0,
-                words = new Words(),
+                wordsView,
+                words = new Words();
+
+                words.loadLevel(this.levels.get(level).id);
+
                 wordsView = new WordsSelectorView({
                     collection: words,
-                    level: this.levels.get(level),
                     className: "main-container",
                 });
 

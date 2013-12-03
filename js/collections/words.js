@@ -4,18 +4,14 @@ define([
 	'backboneLocalstorage',
 	'models/wordItem',
     'data/wordsList'
-], function (Backbone, Store, WordItem, data) {
+], function (Backbone, Store, WordItem, wordList) {
 	'use strict';
 
 	var WordsCollection = Backbone.Collection.extend({
 
 		model: WordItem,
-        initialize: function()
-        {
-            this.getPart()
-        },
 
-        getPart: function(wordList, level) {
+        loadLevel: function(level) {
             var word,
                 start = level * 10,
                 result = [];
@@ -29,7 +25,7 @@ define([
 
             result = _.shuffle(result.slice( start, start + 10));
 
-            return result;
+            this.add(result);
         }
 	});
 
